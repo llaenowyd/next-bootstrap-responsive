@@ -1,10 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
-import Border from '../components/Border'
-import Layout from '../components/Layout'
 import Header from '../components/Header'
 import ResultsGrid from '../components/ResultsGrid'
+
 import styles from '../styles/Home.module.css'
 
 const Home = () => (
@@ -16,12 +17,14 @@ const Home = () => (
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
       />
     </Head>
-    <Border>
-      <Layout>
+    <Container fluid>
+      <Row>
         <Header />
+      </Row>
+      <Row>
         <ResultsGrid />
-      </Layout>
-    </Border>
+      </Row>
+    </Container>
   </div>
 )
 
