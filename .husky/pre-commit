@@ -5,4 +5,6 @@ npm run pretty-quick
 
 npm run lint
 
+npm run stylelint
+
 npm test
