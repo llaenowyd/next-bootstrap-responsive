@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 // Provide HTML frame common to all components.
-// Except viewport meta...
+// Except viewport meta and title...
 
 class MyDocument extends Document {
   // tbd: SSR props needed or not
@@ -15,7 +15,23 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head lang="en">
-          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="Example NextJS App" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="icon" href="/icons/favicon.ico" />
+          <link
+            href="/icons/favicon-16x16.png"
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+          />
+          <link
+            href="/icons/favicon-32x32.png"
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+          />
+          <link rel="apple-touch-icon" href="/apple-icon.png"></link>
+          <meta name="theme-color" content="#317EFB" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"

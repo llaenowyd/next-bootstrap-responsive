@@ -7,7 +7,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Simple Movie Search App</title>
-        <meta name="description" content="Example NextJS App" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
