@@ -1,0 +1,17 @@
+.container {
+  background-color: green;
+  min-height: 100vh;
+  height: 100vh;
+  padding-top: 3.5rem;
+}
+
+.resultsGridRow {
+  background-color: yellow;
+  height: 100%;
+  padding-top: 2rem;
+}
+
+.resultsGridCol {
+  background-color: orange;
+  height: 100%;
+}

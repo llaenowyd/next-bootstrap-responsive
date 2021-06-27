@@ -1,0 +1,19 @@
+.tileImageContainer {
+  background-color: lightgray;
+  height: 7.5rem;
+  width: 5rem;
+  min-height: 7.5rem;
+  min-width: 5rem;
+  max-height: 7.5rem;
+  max-width: 5rem;
+}
+
+.img {
+  display: block;
+  height: 7.5rem;
+  width: 5rem;
+  max-height: 7.5rem;
+  max-width: 5rem;
+  min-height: 7.5rem;
+  min-width: 5rem;
+}

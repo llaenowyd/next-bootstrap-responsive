@@ -12,26 +12,42 @@
     "pretty-quick": "pretty-quick --staged",
     "lint": "eslint pages/** components/**",
     "stylelint": "stylelint **/*.css",
-    "test": "jest --passWithNoTests"
+    "test": "jest --testPathPattern=tests/.*\\.test\\.js --coverage"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.0",
     "bootstrap": "^5.0.2",
+    "classnames": "^2.2.6",
+    "cors": "^2.8.5",
+    "lodash.debounce": "^4.0.8",
+    "lodash.range": "^3.2.0",
     "next": "11.0.1",
     "next-pwa": "^5.2.21",
+    "query-string": "^7.0.1",
     "react": "17.0.2",
     "react-bootstrap": "^1.6.1",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.4",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "enzyme": "^3.11.0",
     "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^6.0.0",
     "jest": "^27.0.5",
+    "jsdom": "^16.6.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
     "prop-types": "^15.7.2",
     "rimraf": "^3.0.2",
     "stylelint": "^13.13.1",
     "stylelint-prettier": "^1.2.0"
-  }
+  },
+  "targets": "> 0.25%, not dead"
 }

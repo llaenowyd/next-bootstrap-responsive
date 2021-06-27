@@ -1,0 +1,8 @@
+.searchEntry {
+  border-radius: 0;
+  padding: 0rem 0.2rem;
+  font-size: 90%;
+  min-height: 1rem;
+  line-height: 0.9rem;
+  font-weight: 600;
+}

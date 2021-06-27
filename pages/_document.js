@@ -5,12 +5,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 // Except viewport meta and title...
 
 class MyDocument extends Document {
-  // tbd: SSR props needed or not
-  // static async getInitialProps(ctx) {
-  //   const initialProps = await Document.getInitialProps(ctx);
-  //   return { ...initialProps };
-  // }
-
   render() {
     return (
       <Html>
@@ -40,7 +34,7 @@ class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
           />
         </Head>
         <body>

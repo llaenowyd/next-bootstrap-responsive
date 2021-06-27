@@ -1,4 +1,6 @@
 html,
 body {
   font-family: 'Nunito', sans-serif;
+  font-size: 85%;
+  font-weight: 600;
 }
