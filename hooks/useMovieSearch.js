@@ -8,21 +8,6 @@ import debounce from 'lodash.debounce'
 
 import { selectors, actions } from '../store'
 
-import mockSearchData from '../mocks/search_movie.json'
-import mockSearchDataPage2 from '../mocks/search_movie_2.json'
-
-const mockFetcher = key => {
-  const [query, page] = JSON.parse(key)
-  console.log('mockFetcher', query, page)
-
-  return new Promise(resolve => {
-    if (!query) resolve(null)
-    else if (page === 1) setTimeout(() => resolve(mockSearchData), 1000)
-    else if (page === 2) setTimeout(() => resolve(mockSearchDataPage2), 1000)
-    else setTimeout(() => resolve(mockSearchDataPage2), 15000)
-  })
-}
-
 const makeUrl = (query, index) => {
   const page = index + 1
 
@@ -34,6 +19,8 @@ const makeUrl = (query, index) => {
 
 const fetcher = async key => {
   const [query, page] = JSON.parse(key)
+
+  if (!query) return null
 
   const res = await fetch(makeUrl(query, page))
 
@@ -81,8 +68,7 @@ const useMovieSearch = () => {
 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     getSwrKey,
-    // fetcher,
-    mockFetcher
+    fetcher
   )
 
   const results =

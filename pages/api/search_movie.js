@@ -5,7 +5,7 @@ import runCorsMiddleware from '../../api_lib/runCorsMiddleware'
 const apiUrl = process.env.API_URL
 const apiHost = process.env.API_HOST
 const apiSearchEndpoint = process.env.API_SEARCH_ENDPOINT
-const authTokenV3 = process.env.AUTH_TOKEN_V3
+const authTokenV3 = process.env.API_AUTH_TOKEN_V3
 
 const handler = async (req, res) => {
   await runCorsMiddleware(req, res)

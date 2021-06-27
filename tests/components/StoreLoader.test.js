@@ -4,7 +4,7 @@ import { mount } from 'enzyme'
 import { useDispatch } from 'react-redux'
 import StoreLoader from '../../components/StoreLoader'
 
-import { fetchApiConfig, mockFetchApiConfig } from '../../requests/apiConfig'
+import { fetchApiConfig } from '../../requests/apiConfig'
 import mockApiConfig from '../../mocks/api_config.json'
 
 jest.mock('react-redux')
@@ -22,12 +22,12 @@ describe('StoreLoader', () => {
   })
 
   it('calls fetchApiConfig when mounted and dispatches the result', async () => {
-    mockFetchApiConfig.mockResolvedValueOnce(mockApiConfig)
+    fetchApiConfig.mockResolvedValueOnce(mockApiConfig)
 
     const wrapper = mount(<StoreLoader />)
     await flushPromises()
 
-    expect(mockFetchApiConfig.mock.calls).toEqual([[]])
+    expect(fetchApiConfig.mock.calls).toEqual([[]])
     expect(dispatch.mock.calls).toEqual([
       [{ type: 'setApiConfig', payload: mockApiConfig }],
     ])

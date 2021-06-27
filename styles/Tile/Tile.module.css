@@ -6,4 +6,5 @@
   width: 17.5rem;
   min-width: 16.5rem;
   max-width: 17.5rem;
+  user-select: none;
 }

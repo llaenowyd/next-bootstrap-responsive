@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { actions } from '../store'
-import { mockFetchApiConfig } from '../requests/apiConfig'
+import { fetchApiConfig } from '../requests/apiConfig'
 
 const StoreLoader = ({ initialSearchQuery }) => {
   const dispatch = useDispatch()
@@ -13,7 +13,7 @@ const StoreLoader = ({ initialSearchQuery }) => {
       if (initialSearchQuery) {
         await dispatch(actions.initializeSearch(initialSearchQuery))
       }
-      dispatch(actions.setApiConfig(await mockFetchApiConfig()))
+      dispatch(actions.setApiConfig(await fetchApiConfig()))
     })()
   }, [initialSearchQuery])
 

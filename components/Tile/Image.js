@@ -11,7 +11,9 @@ const TileImage = ({ posterPath }) => {
   const posterSize = useSelector(selectors.posterSize)
 
   const src =
-    basePath && posterSize ? `${basePath}${posterSize}${posterPath}` : ''
+    basePath && posterSize && posterPath
+      ? `${basePath}${posterSize}${posterPath}`
+      : ''
 
   return (
     <div className={styles.tileImageContainer}>
@@ -21,7 +23,7 @@ const TileImage = ({ posterPath }) => {
 }
 
 TileImage.propTypes = {
-  posterPath: PropTypes.string.isRequired,
+  posterPath: PropTypes.string,
 }
 
 export default TileImage

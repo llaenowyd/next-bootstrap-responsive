@@ -17,7 +17,7 @@ const Tile = ({ data }) => {
 
 Tile.propTypes = {
   data: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
   }).isRequired,
 }
 

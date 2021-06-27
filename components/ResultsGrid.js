@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -13,16 +12,6 @@ import LoadMoreButton from './LoadMoreButton'
 import FullyLoadedNote from './FullyLoadedNote'
 
 import styles from '../styles/ResultsGrid.module.css'
-
-const StateMonitor = () => {
-  const state = useSelector(state => state)
-
-  React.useEffect(() => {
-    console.log('StateMonitor', state)
-  }, [state])
-
-  return null
-}
 
 const ResultsGrid = () => {
   const {
@@ -75,7 +64,6 @@ const ResultsGrid = () => {
           </Col>
         </Row>
       )}
-      <StateMonitor />
     </Container>
   )
 }
