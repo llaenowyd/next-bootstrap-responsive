@@ -10,7 +10,6 @@ const StoreLoader = ({ initialSearchQuery }) => {
 
   React.useEffect(() => {
     ;(async () => {
-      console.log('initialSearchQuery', initialSearchQuery)
       if (initialSearchQuery) {
         await dispatch(actions.initializeSearch(initialSearchQuery))
       }

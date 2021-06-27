@@ -13,8 +13,6 @@ const TileImage = ({ posterPath }) => {
   const src =
     basePath && posterSize ? `${basePath}${posterSize}${posterPath}` : ''
 
-  console.log('TileImage', src)
-
   return (
     <div className={styles.tileImageContainer}>
       {src ? <img className={styles.img} src={src} /> : null}

@@ -21,7 +21,7 @@ const LoadMoreButton = ({ loading, onClick }) => (
 
 LoadMoreButton.propTypes = {
   loading: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 }
 
 export default LoadMoreButton

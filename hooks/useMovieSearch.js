@@ -16,7 +16,8 @@ const mockFetcher = key => {
   console.log('mockFetcher', query, page)
 
   return new Promise(resolve => {
-    if (page === 1) setTimeout(() => resolve(mockSearchData), 1000)
+    if (!query) resolve(null)
+    else if (page === 1) setTimeout(() => resolve(mockSearchData), 1000)
     else if (page === 2) setTimeout(() => resolve(mockSearchDataPage2), 1000)
     else setTimeout(() => resolve(mockSearchDataPage2), 15000)
   })
@@ -33,9 +34,8 @@ const makeUrl = (query, index) => {
 
 const fetcher = async key => {
   const [query, page] = JSON.parse(key)
-  console.log('fetcher', query, page)
 
-  const res = await fetch(makeUrl(query, index))
+  const res = await fetch(makeUrl(query, page))
 
   const content = await res.json()
 
@@ -58,32 +58,20 @@ const useMovieSearch = () => {
 
   const debouncedSetSearchQuery = React.useCallback(
     debounce(searchQuery => {
-      console.log('setSearchQuery', searchQuery)
       ;(async () => {
-        console.log('setSearchQuery...')
         await dispatch(actions.setSearchQuery(searchQuery))
-        console.log('router replace')
-        // router.replace(`/${searchQuery}`)
-        router.push(
-          // {
-          //   pathname: `/${searchQuery}`,
-          // },
-          // undefined,
-          '/[searchEntry]',
-          `/${searchQuery}`,
-          { shallow: true }
-        )
+
+        const [targetSlug, targetPath] = searchQuery
+          ? ['/[searchEntry]', `/${searchQuery}`]
+          : ['/', '/']
+        router.push(targetSlug, targetPath, { shallow: true })
       })()
     }, 500),
     [dispatch]
   )
 
   React.useEffect(() => {
-    console.log('searchEntry setQuery debounce', searchEntry)
-    if (searchEntry) {
-      console.log('searchEntry setQuery debounce doing')
-      debouncedSetSearchQuery(searchEntry)
-    }
+    debouncedSetSearchQuery(searchEntry)
   }, [searchEntry])
 
   const getSwrKey = index => {
@@ -97,13 +85,16 @@ const useMovieSearch = () => {
     mockFetcher
   )
 
-  const results = error || !data ? null : data.flatMap(page => page.results)
+  const results =
+    error || !data?.[0]?.results?.length
+      ? []
+      : data.flatMap(page => page.results)
   const sizeAvailable = error || !data ? 0 : data[0]?.total_pages
 
-  const loadingInitial = searchQuery && !data && !error
+  const loadingInitial = !!searchQuery && results.length === 0 && !error
   const loadingMore =
     loadingInitial ||
-    (size > 0 && data && typeof data[size - 1] === 'undefined')
+    (size > 0 && !!data && typeof data[size - 1] === 'undefined')
 
   const loadMore = size === sizeAvailable ? null : () => setSize(size + 1)
 

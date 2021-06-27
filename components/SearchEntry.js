@@ -8,7 +8,6 @@ import styles from '../styles/SearchEntry.module.css'
 
 const SearchEntry = () => {
   const { searchEntry, setSearchEntry } = useMovieSearch()
-  console.log('SearchEntry', searchEntry)
 
   const ref = React.useRef()
 

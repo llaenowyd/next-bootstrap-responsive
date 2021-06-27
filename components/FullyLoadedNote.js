@@ -13,7 +13,7 @@ const FullyLoadedNote = ({ size, sizeAvailable }) => {
 
 FullyLoadedNote.propTypes = {
   size: PropTypes.number.isRequired,
-  sizeAvailable: PropTypes.isRequired,
+  sizeAvailable: PropTypes.number.isRequired,
 }
 
 export default FullyLoadedNote

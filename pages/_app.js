@@ -7,9 +7,11 @@ import { makeStore } from '../store'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
 
+const store = makeStore()
+
 function App({ Component, pageProps }) {
   return (
-    <Provider store={makeStore()}>
+    <Provider store={store}>
       <Component {...pageProps} />
     </Provider>
   )
