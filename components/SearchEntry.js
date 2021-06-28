@@ -23,7 +23,6 @@ const SearchEntry = () => {
       size="sm"
       value={searchEntry}
       onChange={ev => {
-        console.log('searchEntry onChange', ev.target.value)
         setSearchEntry(ev.target.value)
       }}
     />
