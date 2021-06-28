@@ -1,5 +1,23 @@
 # nextjs-bootstrap-responsive demo
 
+![image](https://user-images.githubusercontent.com/41239783/123573561-304aa380-d79c-11eb-8ab8-7d501367a9e3.png)
+
+## instructions
+
+1. npm install
+2. create `.env.local` (see below for contents)
+3. npm run dev
+
+## `.env.local`
+
+```
+API_URL=https://api.themoviedb.org
+API_HOST=api.themoviedb.org
+API_SEARCH_ENDPOINT=/3/search/movie
+API_CONFIG_ENDPOINT=/3/configuration
+API_AUTH_TOKEN_V3=deadbeef 🐮
+```
+
 ## stack
 
 - NextJS
