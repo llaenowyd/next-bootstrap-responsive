@@ -43,16 +43,18 @@ const useMovieSearch = () => {
     fetchMovieSearch
   )
 
+  const isEmpty = data?.[0]?.results.length === 0
   const results =
     error || !data?.[0]?.results?.length
       ? []
       : data.flatMap(page => page.results)
   const sizeAvailable = error || !data ? 0 : data[0]?.total_pages
 
-  const loadingInitial = !!searchQuery && results.length === 0 && !error
+  const loadingInitial =
+    !!searchQuery && results.length === 0 && !isEmpty && !error
   const loadingMore =
     loadingInitial ||
-    (size > 0 && !!data && typeof data[size - 1] === 'undefined')
+    (!isEmpty && size > 0 && !!data && typeof data[size - 1] === 'undefined')
 
   const loadMore = size === sizeAvailable ? null : () => setSize(size + 1)
 
